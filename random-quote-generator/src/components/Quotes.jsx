@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+
 import "../App.css";
 import randomColor from "randomcolor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const Quotes = () => {
   const [quote, setQuote] = useState("");
@@ -45,7 +48,7 @@ const Quotes = () => {
               href={`https://twitter.com/intent/tweet?text=${quote} by ${author}`}
               className="tweet-btn"
             >
-              Tweet
+              <FontAwesomeIcon icon={faTwitter} />
             </a>
           </div>
         </div>
