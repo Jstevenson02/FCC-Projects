@@ -11,9 +11,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 25vh;
 }
 
-.author {
+.creator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +24,9 @@ body {
 }
 
 .quote-box {
-  padding: 10vh 10vw 10vh 10vw;
-  border: 1px solid white;
+  padding: 15vh 2vw 15vh 2vw;
+  border: 1px solid #3c3e3f;
+  border-radius: 5px;
 }
 
 .quote {
