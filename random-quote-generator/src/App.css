@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
 
-@import url("https://kit.fontawesome.com/0c72fa24ea.js");
-
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +21,76 @@ body {
   padding-top: 25vh;
 }
 
+.quote-box {
+  display: table;
+  position: relative;
+  padding: 5vh 1.5vw 0 1.5vw;
+  width: 30vw;
+
+  border: 1px solid #3c3e3f;
+  border-radius: 5px;
+}
+
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-style: italic;
+  font-size: xx-large;
+}
+
+.author {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2vh 0 1vh 0;
+}
+
+.buttons {
+  display: block;
+  margin: auto;
+  width: 30vw;
+  padding: 5vh 0 6.5vh 0vw;
+}
+
+.quote-btn {
+  padding: 1vh;
+  float: right;
+
+  border-radius: 3px;
+  color: var(--text);
+  background-color: #292a2b;
+  border: none;
+  box-shadow: inset 0 0 0 0 #3c3e3f;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tweet-btn {
+  padding: 1vh;
+  float: left;
+
+  text-decoration: none;
+
+  border-radius: 3px;
+  color: var(--text);
+  background-color: #292a2b;
+  border: none;
+  box-shadow: inset 0 0 0 0 #3c3e3f;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.tweet-btn:hover {
+  box-shadow: inset 100px 0 0 0 #3c3e3f;
+  color: white;
+  border: solid #3c3e3f 0.25px;
+}
+
+.quote-btn:hover {
+  box-shadow: inset 100px 0 0 0 #3c3e3f;
+  color: white;
+  border: solid #3c3e3f 0.25px;
+}
+
 .creator {
   display: flex;
   align-items: center;
@@ -32,26 +100,42 @@ body {
   color: var(--text);
 }
 
-.quote-box {
-  padding: 15vh 2vw 15vh 2vw;
-  border: 1px solid #3c3e3f;
-  border-radius: 5px;
-  max-width: 30vw;
-  min-width: 30vw;
-}
+@media only screen and (max-width: 600px) {
+  .container {
+    padding-top: 15vh;
+  }
 
-.quote {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .quote-box {
+    width: 90vw;
+    padding: 5vh 4vw 0 4vw;
+  }
 
-  font-size: x-large;
-}
+  .quote {
+    font-size: larger;
+  }
 
-.quote-btn {
-  padding: 0.5vh;
-  object-position: right bottom;
-  color: var(--text);
-  background-color: #292a2b;
-  border: none;
+  .author {
+    padding: 2vh 5vw 1vh 0;
+  }
+
+  .buttons {
+    width: 85vw;
+    padding: 2vh 0 5vh 0;
+  }
+
+  .quote-btn {
+    padding: 1vh;
+  }
+
+  .tweet-btn {
+    padding: 1vh;
+  }
+
+  .author {
+    font-size: small;
+  }
+
+  .creator {
+    font-size: small;
+  }
 }
