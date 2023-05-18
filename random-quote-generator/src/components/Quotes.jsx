@@ -38,7 +38,7 @@ const Quotes = () => {
       <div className="container">
         <div style={{ backgroundColor: color }} className="quote-box">
           <div className="quote">{quote}</div>
-          <div className="author">{author}</div>
+          <div className="author">— {author}</div>
           <button onClick={handleClick} className="quote-btn">
             New Quote
           </button>

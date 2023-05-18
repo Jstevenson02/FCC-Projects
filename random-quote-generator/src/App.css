@@ -1,6 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
+
+@import url("https://kit.fontawesome.com/0c72fa24ea.js");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: Rubik;
+}
+
+:root {
+  --text: whitesmoke;
 }
 
 body {
@@ -20,17 +29,29 @@ body {
   justify-content: center;
   padding-top: 1vh;
 
-  color: white;
+  color: var(--text);
 }
 
 .quote-box {
   padding: 15vh 2vw 15vh 2vw;
   border: 1px solid #3c3e3f;
   border-radius: 5px;
+  max-width: 30vw;
+  min-width: 30vw;
 }
 
 .quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: x-large;
 }
 
 .quote-btn {
+  padding: 0.5vh;
+  object-position: right bottom;
+  color: var(--text);
+  background-color: #292a2b;
+  border: none;
 }
