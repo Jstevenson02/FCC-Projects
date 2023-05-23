@@ -37,14 +37,23 @@ const Quotes = () => {
   return (
     <>
       <div className="container">
-        <div style={{ backgroundColor: color }} className="quote-box">
-          <div className="quote">{quote}</div>
-          <div className="author">— {author}</div>
+        <div
+          style={{ backgroundColor: color }}
+          className="quote-box"
+          id="quote-box"
+        >
+          <div className="quote" id="text">
+            {quote}
+          </div>
+          <div className="author" id="author">
+            — {author}
+          </div>
           <div className="buttons">
-            <button onClick={handleClick} className="quote-btn">
+            <button onClick={handleClick} className="quote-btn" id="new-quote">
               New Quote
             </button>
             <a
+              id="tweet-quote"
               href={`https://twitter.com/intent/tweet?text=${quote} by ${author}`}
               className="tweet-btn"
             >
