@@ -1,0 +1,52 @@
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+
+  background: linear-gradient(
+    to bottom,
+    #e64e4e 0%,
+    #e66465 33%,
+    #9198e5 66%,
+    #727ce3 100%
+  );
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: #727ce3;
+}
+
+.container {
+  gap: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 30vw;
+  height: 30vh;
+  scroll-behavior: smooth;
+  resize: none;
+
+  scrollbar-width: none;
+  border: solid rgba(36, 36, 36, 0.5);
+  background-color: rgba(213, 213, 213, 0.2);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.output {
+  width: 40vw;
+
+  border: solid rgba(36, 36, 36, 0.5);
+  background-color: rgba(213, 213, 213, 0.2);
+}
+
+.output img {
+  display: block;
+  width: 90%;
+}
