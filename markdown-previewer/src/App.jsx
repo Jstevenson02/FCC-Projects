@@ -1,6 +1,11 @@
 import React from "react";
 import { marked } from "marked";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faNewspaper,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,7 +23,9 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <div className="container">
-          <div className="header">Editor</div>
+          <div className="input-header">
+            <FontAwesomeIcon icon={faNewspaper} /> Editor
+          </div>
           <textarea
             spellCheck="false"
             className="input"
@@ -27,7 +34,9 @@ export default class App extends React.Component {
               this.updateMarkdown(e.target.value);
             }}
           ></textarea>
-          <div className="header">Previewer</div>
+          <div className="output-header">
+            <FontAwesomeIcon icon={faMagnifyingGlass} /> Previewer
+          </div>
           <div
             className="output"
             dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}
