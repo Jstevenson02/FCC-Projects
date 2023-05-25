@@ -3,6 +3,8 @@ html {
   padding: 0;
   scroll-behavior: smooth;
 
+  color: rgb(24, 24, 24);
+
   background: linear-gradient(
     to bottom,
     #e64e4e 0%,
@@ -26,7 +28,7 @@ html {
 .input-header {
   margin-bottom: -1px;
   font-size: large;
-  width: 30vw;
+  width: 31.8vw;
   padding: 1vh 0.25vw 1vh 0.25vw;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(93, 93, 93, 0.8);
@@ -35,8 +37,11 @@ html {
 .input {
   width: 30vw;
   height: 30vh;
+  margin-bottom: 1vh;
+  padding: 0 1vw 0 1vw;
+
   scroll-behavior: smooth;
-  resize: none;
+  resize: vertical;
 
   scrollbar-width: none;
   border: solid rgba(36, 36, 36, 0.5);
@@ -48,9 +53,10 @@ html {
 }
 
 .output-header {
-  font-size: large;
-  width: 30vw;
+  width: 31.95vw;
   padding: 1vh 10.1vw 1vh 0.25vw;
+
+  font-size: large;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(93, 93, 93, 0.8);
 }
@@ -58,9 +64,15 @@ html {
 .output {
   width: 40vw;
   min-height: 20vh;
+  padding: 0 1vw 0 1vw;
 
   border: solid rgba(36, 36, 36, 0.5);
   background-color: rgba(213, 213, 213, 0.2);
+}
+
+.output html {
+  padding: 1vw;
+  color: #727ce3;
 }
 
 .output img {
