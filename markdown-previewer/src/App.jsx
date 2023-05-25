@@ -7,6 +7,11 @@ import {
   faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 
+marked.use({
+  gfm: true,
+  breaks: true,
+});
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +32,7 @@ export default class App extends React.Component {
             <FontAwesomeIcon icon={faNewspaper} /> Editor
           </div>
           <textarea
+            id="editor"
             spellCheck="false"
             className="input"
             value={this.state.markdown}
@@ -38,6 +44,7 @@ export default class App extends React.Component {
             <FontAwesomeIcon icon={faMagnifyingGlass} /> Previewer
           </div>
           <div
+            id="preview"
             className="output"
             dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}
           ></div>
