@@ -1,5 +1,4 @@
-import { useState } from "react/index.js";
-
+import { useState } from "react";
 import Wrapper from "./components/Wrapper.jsx";
 import Screen from "./components/Screen.jsx";
 import ButtonBox from "./components/ButtonBox.jsx";
@@ -24,15 +23,15 @@ const App = () => {
     e.preventDefault();
     const value = e.target.innerHTML;
 
-    if (calc.num.length < 16) {
+    if (removeSpaces(calc.num).length < 16) {
       setCalc({
         ...calc,
         num:
           calc.num === 0 && value === "0"
             ? "0"
-            : calc.num % 1 === 0
-            ? Number(calc.num + value)
-            : calc.num + value,
+            : removeSpaces(calc.num) % 1 === 0
+            ? toLocaleString(Number(removeSpaces(calc.num + value)))
+            : toLocaleString(calc.num + value),
         res: !calc.sign ? 0 : calc.res,
       });
     }
@@ -76,7 +75,13 @@ const App = () => {
         res:
           calc.num === "0" && calc.sign === "/"
             ? "NULL Operation"
-            : math(Number(calc.res), Number(calc.num), calc.sign),
+            : toLocaleString(
+                math(
+                  Number(removeSpaces(calc.res)),
+                  Number(removeSpaces(calc.num)),
+                  calc.sign
+                )
+              ),
         sign: "",
         num: 0,
       });
@@ -111,6 +116,14 @@ const App = () => {
       num: 0,
       res: 0,
     });
+  };
+
+  const toLocaleString = (num) => {
+    String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
+  };
+
+  const removeSpaces = (num) => {
+    num.toString().replace(/\s/g, "");
   };
 
   return (
