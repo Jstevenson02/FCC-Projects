@@ -3,6 +3,8 @@ import Wrapper from "./components/Wrapper.jsx";
 import Screen from "./components/Screen.jsx";
 import ButtonBox from "./components/ButtonBox.jsx";
 import Button from "./components/Button.jsx";
+import Formula from "./components/Formula.jsx";
+import "./App.scss";
 
 const btnValues = [
   ["C", "+-", "%", "/"],
@@ -13,11 +15,20 @@ const btnValues = [
 ];
 
 const App = () => {
-  const [calc, setCalc] = useState({
+  let [calc, setCalc] = useState({
     sign: "",
     num: 0,
     res: 0,
+    formula: "",
   });
+
+  const toLocaleString = (num) =>
+    String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
+
+  const removeSpaces = (num) => num.toString().replace(/\s/g, "");
+
+  const math = (a, b, sign) =>
+    sign === "+" ? a + b : sign === "-" ? a - b : sign === "X" ? a * b : a / b;
 
   const numClickHandler = (e) => {
     e.preventDefault();
@@ -39,7 +50,7 @@ const App = () => {
 
   const decimalClickHandler = (e) => {
     e.preventDefault();
-    const value = e.target.value;
+    const value = e.target.innerHTML;
 
     setCalc({
       ...calc,
@@ -49,7 +60,7 @@ const App = () => {
 
   const signClickHandler = (e) => {
     e.preventDefault();
-    const value = e.target.value;
+    const value = e.target.innerHTML;
 
     setCalc({
       ...calc,
@@ -57,19 +68,12 @@ const App = () => {
       res: !calc.res && calc.num ? calc.num : calc.res,
       num: 0,
     });
+
+    console.log("sign clicked!");
   };
 
   const equalsClickHandler = () => {
     if (calc.sign && calc.num) {
-      const math = (a, b, sign) =>
-        sign === "+"
-          ? a + b
-          : sign === "-"
-          ? a - b
-          : sign === "X"
-          ? a * b
-          : a / b;
-
       setCalc({
         ...calc,
         res:
@@ -91,8 +95,8 @@ const App = () => {
   const invertClickHandler = () => {
     setCalc({
       ...calc,
-      num: calc.num ? calc.num * -1 : 0,
-      res: calc.res ? calc.res * -1 : 0,
+      num: calc.num ? toLocaleString(removeSpaces(calc.num) * -1) : 0,
+      res: calc.res ? toLocaleString(removeSpaces(calc.res) * -1) : 0,
       sign: "",
     });
   };
@@ -115,20 +119,14 @@ const App = () => {
       sign: "",
       num: 0,
       res: 0,
+      formula: "",
     });
-  };
-
-  const toLocaleString = (num) => {
-    String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
-  };
-
-  const removeSpaces = (num) => {
-    num.toString().replace(/\s/g, "");
   };
 
   return (
     <>
       <Wrapper>
+        <Formula formula={Formula} />
         <Screen value={calc.num ? calc.num : calc.res} />
         <ButtonBox>
           {btnValues.flat().map((btn, i) => {

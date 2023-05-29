@@ -3,12 +3,15 @@
   width: 100%;
   margin-bottom: 10px;
   padding: 0 10px;
-  background-color: #07090a2d;
-  border-radius: 10px;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  color: white;
-  font-weight: bold;
+  align-items: center;
   box-sizing: border-box;
+
+  font-family: digital;
+  font-size: xx-large;
+  font-weight: bold;
+  background-color: #07090a2d;
+  color: white;
+  border-radius: 10px;
 }
